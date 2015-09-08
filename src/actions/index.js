@@ -60,8 +60,6 @@ export function launchBot() {
 
     const { bot: { fn: think } } = getState()
 
-    console.log('thinkfn', think)
-
     const ws = new WebSocket('ws://localhost:5000')
 
     ws.addEventListener('start', () => dispatch(launchSucceeded()))

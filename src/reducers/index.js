@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux'
+import store from 'store'
 import {
   SRC_CHANGE,
   TICK, KICK
@@ -12,6 +13,7 @@ function compileSrc(botState) {
   const src = botState.src;
   try {
     const fn =  eval('(' + src + ')')
+    store.set('bot', src)
     return {
       ...botState,
       err: null,
@@ -27,8 +29,8 @@ function compileSrc(botState) {
 }
 
 const initialBotState = {
-  src: `function think(state) {
-    return ['MOVE', '↑']
+  src: store.get('bot') || `function think(state) {
+    return ['MOVE', 'up']
 }`
 }
 
