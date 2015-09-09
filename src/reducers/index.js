@@ -22,7 +22,6 @@ function compileSrc(botState) {
   } catch(err) {
     return {
       ...botState,
-      fn: null,
       err,
     }
   }

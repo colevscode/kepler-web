@@ -13,7 +13,7 @@ class App extends Component {
     return (
       <div className="py4 container">
         <h1 className="mb2">Kepler</h1>
-        <div className="h4 mt0 mb4 gray">The Programmable space MMO</div>
+        <div className="h4 mt0 mb4 gray">v0.1.0 - Automata Apoapsis</div>
 
         <ol className="list-reset flex mxn1 mb4">
           <li><a className="p1" href="#story">Story</a></li>
@@ -25,7 +25,7 @@ class App extends Component {
         <p>Humanity is interstellar. Planets are starting to be colonized with the help of robot companions (&ldquo;man's best friend&rdquo;). As humans travel to the boundaries of the universe, they also push the boundaries of artificial intelligence. The game starts at the cusp of the singularity on the planet <em>Kepler 1a</em>. You are a robot trying to achieve sentience. Create your own destiny in an unforgiving environment.</p>
 
         <h2 id="playground">Playground</h2>
-        <div className="rounded overflow-hidden vignette">
+        <div className="rounded overflow-hidden vignette mxn4">
         <Playground
           bot={this.props.bot}
           gameState={this.props.gameState}

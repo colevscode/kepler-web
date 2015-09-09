@@ -16,17 +16,18 @@ export default class Playground extends Component {
           {this.renderViewport()}
         </div>
 
-        <div className="flex flex-column sm-col-6 p1" style={{backgroundColor: 'black'}}>
-          <AceEditor
-            mode="javascript"
-            theme="tomorrow_night_bright"
-            showPrintMargin={true}
-            value={src}
-            showGutter={false}
-            onChange={e => this.handleSrcChange(e)}
-            width="100%"
-            height={height}
-          />
+        <div className="flex flex-column sm-col-6">
+          <div className="p1" style={{backgroundColor: 'black', height: `calc(${height} - 1rem)`}}>
+            <AceEditor
+              mode="javascript"
+              theme="tomorrow_night_bright"
+              value={src}
+              showGutter={false}
+              onChange={e => this.handleSrcChange(e)}
+              width="100%"
+              height={`calc(${height} - 2rem)`}
+            />
+          </div>
         </div>
       </div>
     )

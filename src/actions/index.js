@@ -58,18 +58,26 @@ export function launchBot() {
   return (dispatch, getState) => {
     dispatch(launchStarted())
 
-    const { bot: { fn: think } } = getState()
-
     const ws = new WebSocket('ws://localhost:5000')
 
     ws.addEventListener('start', () => dispatch(launchSucceeded()))
     ws.addEventListener('close', () => dispatch(kicked()))
     ws.addEventListener('message', (msg) => {
-      const state = JSON.parse(msg.data)
-      dispatch(ticked(state))
-      const cmd = think(state)
-      ws.send(JSON.stringify(cmd || ''))
-      dispatch(commanded(cmd))
+      const event = JSON.parse(msg.data)
+      switch (event.type) {
+      case 'tick':
+        const state = event.state
+        const { bot: { fn: think } } = getState()
+
+        dispatch(ticked(state))
+        const cmd = think(state)
+        ws.send(JSON.stringify(cmd || ''))
+        dispatch(commanded(cmd))
+        break;
+      case 'kick':
+        dispatch(kicked(event.msg))
+        break;
+      }
     })
   }
 }

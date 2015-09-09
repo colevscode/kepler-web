@@ -26,6 +26,7 @@
     "basscss": "^7.0.4",
     "brace": "^0.5.1",
     "css-loader": "^0.17.0",
+    "immutable": "^3.7.5",
     "jsx-loader": "^0.13.2",
     "kepler-client": "file:../kepler-client-react",
     "react": "^0.13.0",

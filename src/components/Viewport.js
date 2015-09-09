@@ -1,17 +1,20 @@
 import React, { Component } from 'react'
-
-import MapView from 'kepler-client/lib/Display/MapView'
-import HUD from 'kepler-client/lib/Display/HUD'
+import { List } from 'immutable'
+import MapView from './KeplerMap'
+import HUD from './HUD'
 
 export default class Viewport extends Component {
   render() {
-    const { height, gameState: { me } } = this.props
+    const { height, gameState } = this.props
+    const entities = List(gameState.entities)
+    const me = entities.find((e) => e.id === gameState.me)
+
     return <div style={{height}}>
-      <MapView
-        pos={me.pos}
-        entities = {this.props.gameState.sensors} />
       <HUD
-        life={me.life} />
+        life={me.life}
+        energy={me.energy}>
+        <MapView gameState={gameState} />
+      </HUD>
     </div>
   }
 }
