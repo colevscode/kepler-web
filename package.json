@@ -28,7 +28,6 @@
     "css-loader": "^0.17.0",
     "immutable": "^3.7.5",
     "jsx-loader": "^0.13.2",
-    "kepler-client": "file:../kepler-client-react",
     "react": "^0.13.0",
     "react-ace": "^2.2.1",
     "react-redux": "^2.1.1",

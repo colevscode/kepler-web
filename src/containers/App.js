@@ -35,7 +35,14 @@ class App extends Component {
         </div>
 
         <h2 id="documentation">Documentation</h2>
-        <p className="gray">Coming soon…</p>
+        <p>There are currently four commands:</p>
+        <ul>
+          <li>['REPAIR'] costs 1 energy, restores 1 life.</li>
+          <li>['MOVE', 'up'] or down, left, right. Costs 50 energy</li>
+          <li>['TURN', 180] rotates bot. Costs 20 energy</li>
+          <li>['USE', '3409kjfasliuer'] uses item with given ID. Costs ?</li>
+          <li>... others to come</li>
+        </ul>
       </div>
     )
   }
